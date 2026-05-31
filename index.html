@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Glam by Ankita | Makeup Artist Melbourne</title>
+  <meta name="description" content="Professional makeup artist based in Melbourne. Specialising in bridal, soft glam, editorial, and occasion makeup. Book your session today.">
+
+  <!-- Open Graph (Facebook, WhatsApp, Instagram link previews) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.theglambyankita.com/">
+  <meta property="og:title" content="The Glam by Ankita | Makeup Artist Melbourne">
+  <meta property="og:description" content="Professional makeup artist based in Melbourne. Specialising in bridal, soft glam, editorial, and occasion makeup. Book your session today.">
+  <meta property="og:image" content="https://www.theglambyankita.com/logo-original.png">
+  <meta property="og:image:alt" content="The Glam by Ankita logo">
+  <meta property="og:site_name" content="The Glam by Ankita">
+  <meta property="og:locale" content="en_AU">
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Glam by Ankita | Makeup Artist Melbourne">
+  <meta name="twitter:description" content="Professional makeup artist based in Melbourne. Specialising in bridal, soft glam, editorial, and occasion makeup.">
+  <meta name="twitter:image" content="https://www.theglambyankita.com/logo-original.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blush: #f5ddd8;
+      --blush-deep: #e8c4bc;
+      --blush-light: #fdf0ee;
+      --champagne: #f7e9d0;
+      --gold: #c9a96e;
+      --gold-light: #e8d5a3;
+      --gold-dark: #9e7c4a;
+      --cream: #fdf8f4;
+      --text-dark: #2c1810;
+      --text-mid: #6b3d2e;
+      --text-light: #9a7060;
+      --white: #fff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
+
+    /* SCROLL PROGRESS */
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light)); z-index: 9999; transition: width 0.1s; }
+
+    /* NAV */
+    .sitenav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s; }
+    .sitenav.scrolled { background: rgba(253,248,244,0.96); backdrop-filter: blur(16px); box-shadow: 0 1px 20px rgba(201,169,110,0.12); }
+    .sitenav-top { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 2.5rem; }
+    .sitenav-logo { background: none; border: none; cursor: pointer; transition: opacity 0.3s; font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: var(--text-dark); }
+    .sitenav-logo:hover { opacity: 0.85; color: var(--gold); }
+    .sitenav-book { background: var(--gold); color: var(--white); border: none; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.78rem; padding: 0.55rem 1.2rem; border-radius: 4px; cursor: pointer; transition: background 0.2s, transform 0.2s; }
+    .sitenav-book:hover { background: var(--gold-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(158,124,74,0.3); }
+    .sitenav-tabs { display: flex; border-top: 1px solid rgba(232,196,188,0.4); opacity: 1; max-height: 48px; overflow: hidden; transition: opacity 0.35s ease, max-height 0.35s ease; }
+    .sitenav-tabs.tabs-hidden { opacity: 0; max-height: 0; pointer-events: none; border-top-color: transparent; }
+    .sitenav-tabs button { flex: 1; background: none; border: none; font-family: 'Nunito', sans-serif; font-size: 0.83rem; font-weight: 600; color: var(--text-dark); padding: 0.6rem 0.3rem; cursor: pointer; transition: color 0.2s, background 0.2s; }
+    .sitenav-tabs button:hover { color: var(--gold-dark); background: rgba(247,233,208,0.3); }
+    .sitenav-tabs button.active { color: var(--gold-dark); border-bottom: 3px solid var(--gold); background: rgba(247,233,208,0.2); }
+    body { padding-top: 96px; }
+
+    /* PAGES */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* CINEMATIC ANIMATIONS */
+    [data-anim] { opacity: 0; will-change: opacity, transform; transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+    [data-anim="up"] { transform: translateY(60px); }
+    [data-anim="up-sm"] { transform: translateY(30px); }
+    [data-anim="left"] { transform: translateX(-60px); }
+    [data-anim="right"] { transform: translateX(60px); }
+    [data-anim="scale"] { transform: scale(0.85); }
+    [data-anim="scale-up"] { transform: scale(0.9) translateY(40px); }
+    [data-anim="rotate"] { transform: rotate(-4deg) translateY(40px); }
+    [data-anim].anim-in { opacity: 1; transform: none; }
+
+    /* Stagger groups */
+    [data-stagger] > * { opacity: 0; transform: translateY(40px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    [data-stagger].anim-in > * { opacity: 1; transform: none; }
+    [data-stagger].anim-in > *:nth-child(1) { transition-delay: 0s; }
+    [data-stagger].anim-in > *:nth-child(2) { transition-delay: 0.1s; }
+    [data-stagger].anim-in > *:nth-child(3) { transition-delay: 0.2s; }
+    [data-stagger].anim-in > *:nth-child(4) { transition-delay: 0.3s; }
+    [data-stagger].anim-in > *:nth-child(5) { transition-delay: 0.4s; }
+    [data-stagger].anim-in > *:nth-child(6) { transition-delay: 0.5s; }
+    [data-stagger].anim-in > *:nth-child(7) { transition-delay: 0.6s; }
+
+    /* Delay helpers */
+    [data-delay="100"] { transition-delay: 0.1s !important; }
+    [data-delay="200"] { transition-delay: 0.2s !important; }
+    [data-delay="300"] { transition-delay: 0.3s !important; }
+    [data-delay="400"] { transition-delay: 0.4s !important; }
+    [data-delay="500"] { transition-delay: 0.5s !important; }
+
+    /* Text reveal */
+    .word-reveal { overflow: hidden; display: inline-block; }
+    .word-reveal span { display: inline-block; transform: translateY(110%); opacity: 0; transition: transform 0.7s cubic-bezier(0.16,1,0.3,1), opacity 0.7s; }
+    .word-reveal.anim-in span { transform: translateY(0); opacity: 1; }
+    .word-reveal.anim-in span:nth-child(1) { transition-delay: 0s; }
+    .word-reveal.anim-in span:nth-child(2) { transition-delay: 0.08s; }
+    .word-reveal.anim-in span:nth-child(3) { transition-delay: 0.16s; }
+    .word-reveal.anim-in span:nth-child(4) { transition-delay: 0.24s; }
+    .word-reveal.anim-in span:nth-child(5) { transition-delay: 0.32s; }
+
+    /* Draw underline */
+    .draw-underline { position: relative; }
+    .draw-underline::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transition: width 0.8s cubic-bezier(0.16,1,0.3,1); }
+    .draw-underline.anim-in::after { width: 100%; }
+
+    /* Shimmer text */
+    @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+    .shimmer-text { background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold) 30%, var(--gold-light) 50%, var(--gold) 70%, var(--gold-dark) 100%); background-size: 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s linear infinite; }
+
+    /* Floating orbs */
+    @keyframes float1 { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(15px,-20px) scale(1.05); } 66% { transform: translate(-10px,10px) scale(0.98); } }
+    @keyframes float2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-20px,-15px) scale(1.08); } }
+    .orb { display: none; }
+    .orb-gold { background: radial-gradient(circle, var(--gold-light), var(--gold)); }
+    .orb-blush { background: radial-gradient(circle, var(--blush), var(--blush-deep)); }
+
+    /* Pulsing dot */
+    @keyframes pulse-dot { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.6); opacity: 0.4; } }
+
+    /* Card hover */
+    .hover-lift { transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease; }
+    .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(201,169,110,0.2); }
+
+    /* Magnetic button */
+    .mag-btn { display: inline-block; transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); }
+
+    /* HERO */
+    #page-home .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; gap: 0; }
+    .hero-left { background: #fdf0ee; display: flex; flex-direction: column; justify-content: center; padding: 5rem 3rem 4rem 4rem; position: relative; overflow: hidden; }
+    .hero-pill { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--champagne); color: var(--gold-dark); border: 1px solid var(--gold-light); border-radius: 100px; padding: 0.4rem 1rem; font-size: 0.78rem; font-weight: 600; margin-bottom: 1.5rem; width: fit-content; }
+    .hero-pill .dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; display: inline-block; animation: pulse-dot 2s ease-in-out infinite; }
+    .hero-h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 6.5vw, 7.5rem); font-weight: 700; line-height: 1.05; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .hero-h1 em { font-style: italic; color: var(--gold-dark); }
+    .hero-script { font-family: 'Dancing Script', cursive; font-size: clamp(1.8rem, 2.8vw, 2.8rem); margin-bottom: 1.6rem; color: var(--gold); }
+    .hero-p { font-size: 1.15rem; font-weight: 400; line-height: 1.9; color: var(--text-mid); max-width: 520px; margin-bottom: 2.5rem; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .btn-primary { background: var(--gold); color: var(--white); border: none; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.95rem; padding: 0.85rem 2rem; border-radius: 4px; cursor: pointer; position: relative; overflow: hidden; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
+    .btn-primary::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.15); transform: translateX(-100%) skewX(-15deg); transition: transform 0.4s; }
+    .btn-primary:hover::after { transform: translateX(110%) skewX(-15deg); }
+    .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(158,124,74,0.35); }
+    .btn-secondary { background: transparent; color: var(--gold-dark); border: 1.5px solid var(--gold); font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 0.95rem; padding: 0.85rem 2rem; border-radius: 4px; cursor: pointer; transition: background 0.2s, transform 0.2s; }
+    .btn-secondary:hover { background: var(--blush); transform: translateY(-2px); }
+    .hero-stats { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 700; color: var(--gold-dark); line-height: 1; }
+    .hero-stat-lbl { font-size: 0.82rem; font-weight: 600; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 0.3rem; }
+    .hero-stat-div { width: 1px; background: var(--blush-deep); align-self: stretch; margin: 0.2rem 0; }
+    .hero-right { background: #fdf0ee; position: relative; overflow: hidden; display: flex !important; align-items: center; justify-content: center; min-height: 100vh; }
+    .hero-photo-wrap { width: 88%; position: relative; z-index: 2; transition: transform 0.1s ease-out; }
+    .hero-photo-wrap img { width: 100%; display: block; object-fit: cover; object-position: center; border-radius: 4px; }
+    .hero-ring { display: none; }
+    .hero-gold-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), transparent); }
+
+    /* MARQUEE */
+    .marquee-bar { background: var(--gold); padding: 0.8rem 0; overflow: hidden; }
+    .marquee-inner { display: flex; animation: marquee 10s linear infinite; white-space: nowrap; }
+    .marquee-inner span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--white); padding: 0 1.8rem; }
+    .marquee-inner .sep { opacity: 0.45; padding: 0 0.3rem; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* SECTIONS */
+    section, .section { padding: 6rem 5rem; }
+    .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+    .section-h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.2vw, 3rem); font-weight: 700; color: var(--text-dark); line-height: 1.2; margin-bottom: 0.5rem; }
+    .section-h2 em { font-style: italic; color: var(--gold-dark); }
+    .divider { width: 44px; height: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); margin-bottom: 1.8rem; }
+    .body-text { font-size: 0.97rem; font-weight: 400; line-height: 1.9; color: var(--text-mid); }
+
+    /* WHY CHOOSE CARDS */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .why-card { padding: 1.8rem 1.6rem; border: 1px solid var(--blush-deep); background: var(--white); border-radius: 8px; position: relative; overflow: hidden; transition: border-color 0.3s, transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s; }
+    .why-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--champagne), transparent); opacity: 0; transition: opacity 0.3s; }
+    .why-card:hover::before { opacity: 1; }
+    .why-card-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .why-card h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.4rem; }
+    .why-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.7; position: relative; z-index: 1; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: start; padding: 6rem 5rem; }
+    .about-photo-col { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+    .about-photo-frame { position: relative; width: 240px; height: 240px; border-radius: 50%; overflow: hidden; border: 4px solid var(--gold); box-shadow: 0 0 0 8px var(--blush), 0 20px 60px rgba(201,169,110,0.2); background: var(--champagne); display: flex; align-items: center; justify-content: center; }
+    .about-photo-frame::after { content: ''; position: absolute; inset: -15%; border-radius: 50%; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAG0lEQVQI12P4z8BQDwADhQGAWjR9awAAAABJRU5ErkJggg=="); opacity: 0.05; }
+    .about-badge { background: var(--gold); color: var(--white); width: 76px; height: 76px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; position: absolute; bottom: -10px; right: -10px; }
+    .about-badge-num { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; line-height: 1; }
+    .about-badge-lbl { font-size: 0.55rem; font-weight: 600; letter-spacing: 0.06em; text-align: center; line-height: 1.3; opacity: 0.9; }
+    .about-content p { margin-bottom: 1.2rem; }
+    .expertise-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0; }
+    .expertise-pills span { background: var(--champagne); color: var(--gold-dark); border: 1px solid var(--gold-light); border-radius: 100px; padding: 0.4rem 1rem; font-size: 0.82rem; font-weight: 500; transition: background 0.2s, color 0.2s, transform 0.2s; cursor: default; }
+    .expertise-pills span:hover { background: var(--gold); color: var(--white); transform: translateY(-2px); }
+    .value-card { padding: 1.2rem 1.4rem; border: 1px solid var(--blush-deep); background: var(--white); border-radius: 6px; transition: border-color 0.3s; }
+    .value-card:hover { border-color: var(--gold); }
+    .value-card-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
+    .value-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .value-card p { font-size: 0.8rem; color: var(--text-light); line-height: 1.65; }
+    .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+
+    /* SERVICES */
+    .service-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .stab { background: var(--white); border: 1.5px solid var(--blush-deep); color: var(--text-mid); font-family: 'Nunito', sans-serif; font-size: 0.82rem; font-weight: 600; padding: 0.5rem 1.2rem; border-radius: 100px; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+    .stab:hover, .stab.active { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 2px; background: var(--blush-deep); }
+    .svc-card { background: var(--cream); padding: 2.2rem 2rem; position: relative; overflow: hidden; cursor: default; transition: background 0.3s; }
+    .svc-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transition: width 0.3s; }
+    .svc-card:hover { background: var(--champagne); }
+    .svc-card:hover::after { width: 100%; }
+    .svc-num { position: absolute; top: 1.4rem; right: 1.6rem; font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--blush-deep); }
+    .svc-emoji { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .svc-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem; }
+    .svc-desc { font-size: 0.85rem; line-height: 1.8; color: var(--text-light); }
+    .svc-tag { display: inline-block; margin-top: 0.8rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+
+
+    /* GALLERY */
+    .gallery-controls { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 2.5rem; }
+    .gallery-filters { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .gfbtn { background: var(--white); border: 1.5px solid var(--blush-deep); color: var(--text-mid); font-family: 'Nunito', sans-serif; font-size: 0.8rem; font-weight: 600; padding: 0.45rem 1rem; border-radius: 100px; cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .gfbtn:hover, .gfbtn.active { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .gallery-view-toggle { display: flex; gap: 0.4rem; }
+    .view-btn { background: var(--white); border: 1.5px solid var(--blush-deep); color: var(--text-mid); font-size: 0.82rem; font-weight: 600; padding: 0.45rem 0.8rem; border-radius: 4px; cursor: pointer; }
+    .view-btn.active { background: var(--gold-dark); color: var(--white); border-color: var(--gold-dark); }
+    .photo-grid { display: grid; gap: 4px; transition: all 0.4s ease; }
+    .photo-grid.grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .photo-grid.grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .photo-item { aspect-ratio: 1; position: relative; overflow: hidden; background: var(--blush); cursor: pointer; }
+    .photo-item.featured { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+    .photo-ph { width: 100%; height: 100%; min-height: 180px; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); background: linear-gradient(135deg, var(--blush), var(--champagne)); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+    .photo-item:hover .photo-ph { transform: scale(1.06); }
+    .photo-overlay { position: absolute; inset: 0; background: rgba(44,24,16,0); display: flex; flex-direction: column; align-items: center; justify-content: center; transition: background 0.3s; }
+    .photo-item:hover .photo-overlay { background: rgba(44,24,16,0.42); }
+    .photo-overlay-txt { opacity: 0; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: var(--white); transition: opacity 0.3s, transform 0.3s; transform: translateY(8px); text-align: center; padding: 0.5rem; }
+    .photo-item:hover .photo-overlay-txt { opacity: 1; transform: translateY(0); }
+    .photo-heart { opacity: 0; position: absolute; top: 0.8rem; right: 0.8rem; background: rgba(253,248,244,0.9); border: none; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.9rem; transition: opacity 0.2s, transform 0.2s; }
+    .photo-item:hover .photo-heart { opacity: 1; }
+    .photo-heart:hover { transform: scale(1.2); }
+
+    /* LIGHTBOX */
+    .lightbox { position: fixed; inset: 0; background: rgba(20,8,4,0.94); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 2rem; }
+    .lightbox.open { display: flex; }
+    .lightbox-inner { max-width: 680px; width: 100%; background: var(--cream); position: relative; overflow: hidden; animation: lightboxIn 0.4s cubic-bezier(0.16,1,0.3,1); }
+    @keyframes lightboxIn { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: none; } }
+    .lightbox-ph { width: 100%; height: 380px; background: linear-gradient(135deg, var(--blush), var(--champagne)); display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+    .lightbox-info { padding: 1.5rem 2rem; }
+    .lightbox-info h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .lightbox-info p { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; }
+    .lightbox-close { position: absolute; top: 1rem; right: 1rem; background: var(--white); border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; transition: background 0.2s, transform 0.2s; }
+    .lightbox-close:hover { background: var(--blush); transform: rotate(90deg); }
+
+    /* IG PANEL */
+    .ig-panel { margin-top: 3rem; background: var(--champagne); border: 1.5px dashed var(--gold-light); padding: 2.2rem 2.5rem; border-radius: 6px; }
+    .ig-panel-top { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.2rem; }
+    .ig-panel-icon { width: 46px; height: 46px; background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); display: flex; align-items: center; justify-content: center; border-radius: 10px; }
+    .ig-panel-icon svg { width: 22px; height: 22px; stroke: white; fill: none; stroke-width: 1.8; }
+    .ig-panel h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; color: var(--text-dark); }
+    .ig-steps { display: flex; flex-direction: column; gap: 0.7rem; margin: 1rem 0; }
+    .ig-step { display: flex; gap: 0.8rem; align-items: flex-start; }
+    .ig-step-n { width: 22px; height: 22px; background: var(--gold); color: var(--white); font-size: 0.7rem; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .ig-step span { font-size: 0.83rem; color: var(--text-mid); line-height: 1.6; }
+    .ig-step code { background: var(--blush); padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.78rem; color: var(--text-dark); }
+
+    /* CONTACT */
+    .contact-layout { display: grid; grid-template-columns: 1fr 1.25fr; gap: 5rem; align-items: start; }
+    .contact-sidebar h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--text-dark); margin-bottom: 1rem; }
+    .contact-sidebar p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.9; margin-bottom: 1.5rem; }
+    .contact-item { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1rem; }
+    .contact-icon { width: 40px; height: 40px; background: var(--champagne); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s, transform 0.2s; }
+    .contact-item:hover .contact-icon { background: var(--gold); transform: scale(1.1); }
+    .contact-item:hover .contact-icon svg { stroke: white; }
+    .contact-icon svg { width: 16px; height: 16px; stroke: var(--gold-dark); fill: none; stroke-width: 2; transition: stroke 0.2s; }
+    .contact-item span { font-size: 0.88rem; font-weight: 500; color: var(--text-mid); }
+    .quote-box { margin-top: 2rem; background: var(--champagne); border-left: 3px solid var(--gold); padding: 1.4rem 1.6rem; }
+    .quote-box p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: var(--text-mid); line-height: 1.9; margin: 0; }
+    .form-tabs { display: flex; border-bottom: 2px solid var(--blush-deep); }
+    .ftab { flex: 1; background: var(--blush); border: none; border-bottom: 3px solid transparent; margin-bottom: -2px; font-family: 'Nunito', sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--text-light); padding: 0.9rem 0.6rem; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+    .ftab.active { background: #e8c4cc; color: #8b2a3a; border-bottom: 3px solid #8b2a3a; }
+    .ftab:not(.active):hover { background: var(--blush-deep); color: var(--text-mid); }
+    .form-panel { background: var(--white); padding: 2rem; border: 1px solid var(--blush-deep); border-top: none; }
+    .form-panel > div { display: none; }
+    .form-panel > div.active { display: block; }
+    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .fgroup { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
+    .fgroup label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); }
+    .fgroup input, .fgroup select, .fgroup textarea { font-family: 'Nunito', sans-serif; font-size: 0.9rem; color: var(--text-dark); background: var(--cream); border: 1.5px solid var(--blush-deep); padding: 0.7rem 0.9rem; border-radius: 4px; transition: border-color 0.2s, box-shadow 0.2s; }
+    .fgroup input:focus, .fgroup select:focus, .fgroup textarea:focus { border-color: var(--gold); outline: none; box-shadow: 0 0 0 3px rgba(201,169,110,0.15); }
+    .fgroup textarea { resize: vertical; min-height: 100px; }
+    .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+    .check-item { display: flex; align-items: center; gap: 0.6rem; cursor: pointer; }
+    .check-item input { width: 15px; height: 15px; accent-color: var(--gold); flex-shrink: 0; }
+    .check-item span { font-size: 0.84rem; color: var(--text-mid); }
+    .form-submit-row { display: flex; align-items: center; gap: 1.2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .form-submit-row button { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--white); background: var(--gold); border: none; padding: 0.75rem 2rem; border-radius: 4px; cursor: pointer; position: relative; overflow: hidden; transition: background 0.2s, transform 0.2s; }
+    .form-submit-row button::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.15); transform: translateX(-100%) skewX(-15deg); transition: transform 0.4s; }
+    .form-submit-row button:hover::after { transform: translateX(110%) skewX(-15deg); }
+    .form-submit-row button:hover { background: var(--gold-dark); transform: translateY(-2px); }
+    .form-note { font-size: 0.78rem; color: var(--text-light); line-height: 1.6; }
+    .form-success { display: none; }
+    .field-error { display: block; font-size: 0.78rem; color: #c0392b; margin-top: 4px; min-height: 1em; }
+    /* Form success screen */
+    .form-success-screen { display: none; padding: 2rem 0; animation: fadeInUp 0.4s ease; }
+    .form-success-screen.show { display: block; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fss-back { display: inline-flex; align-items: center; gap: 0.45rem; background: none; border: none; font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: var(--text-mid); cursor: pointer; padding: 0; margin-bottom: 2.5rem; transition: color 0.2s; letter-spacing: 0.03em; }
+    .fss-back:hover { color: var(--burgundy); }
+    .fss-back svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .fss-card { background: var(--blush); border: 1px solid #e8c4bc; border-radius: 12px; padding: 3rem 2.5rem; text-align: center; }
+    .fss-icon { font-size: 3.2rem; margin-bottom: 1.2rem; }
+    .fss-card h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--burgundy); margin: 0 0 1rem; }
+    .fss-card p { font-size: 1rem; color: var(--text-mid); line-height: 1.8; margin: 0; }
+
+    /* REELS SECTION */
+    .reels-section { margin-top: 3rem; }
+    .reels-section-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.6rem; }
+    .reels-section-title span { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-family: 'Nunito', sans-serif; }
+    .reels-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.2rem; }
+    .reel-item { background: var(--white); border: 1px solid var(--blush-deep); border-radius: 8px; overflow: hidden; transition: box-shadow 0.3s, transform 0.3s; }
+    .reel-item:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(201,169,110,0.18); }
+    .reel-embed { position: relative; width: 100%; }
+    .reel-embed blockquote { margin: 0 !important; border: none !important; }
+    .reel-label { padding: 0.8rem 1rem; font-size: 0.8rem; color: var(--text-light); display: flex; align-items: center; gap: 0.4rem; }
+    .reel-label a { color: var(--gold-dark); font-weight: 600; text-decoration: none; }
+    .reel-label a:hover { text-decoration: underline; }
+
+    /* FILE UPLOAD DROP ZONE */
+    .file-drop { border: 2px dashed var(--blush-deep); background: var(--blush-light); border-radius: 6px; padding: 1.6rem 1.2rem; text-align: center; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+    .file-drop:hover { border-color: var(--gold); background: var(--champagne); }
+    .file-drop-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .file-drop p { font-size: 0.88rem; color: var(--text-mid); margin: 0; line-height: 1.5; }
+    .file-drop-hint { font-size: 0.76rem !important; color: var(--text-light) !important; margin-top: 0.3rem !important; }
+
+    /* COLLAB TYPE CARDS */
+    .collab-type-card { display: flex; align-items: flex-start; gap: 1rem; padding: 1.2rem 1.4rem; border: 1.5px solid var(--blush-deep); background: var(--white); border-radius: 8px; transition: border-color 0.2s, transform 0.2s; }
+    .collab-type-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .ctc-icon { font-size: 1.6rem; flex-shrink: 0; width: 2.2rem; text-align: center; }
+    .collab-type-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.25rem; }
+    .collab-type-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.6; margin: 0; }
+
+    /* FORM LOADING STATE */
+    .form-submit-row button:disabled { opacity: 0.65; cursor: not-allowed; transform: none !important; }
+
+    /* COLLAB */
+    .collab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin-top: 2.5rem; }
+    .collab-card { padding: 1.8rem 1.6rem; border: 1.5px solid var(--blush-deep); background: var(--white); border-radius: 4px; transition: border-color 0.3s, transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s; }
+    .collab-card:hover { border-color: var(--gold); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(201,169,110,0.15); }
+    .cc-ico { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .collab-card h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.4rem; }
+    .collab-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.75; }
+
+    /* FOOTER */
+    footer { background: var(--text-dark); padding: 3.5rem 5rem 2rem; }
+    .footer-inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 4rem; margin-bottom: 2.5rem; }
+    .footer-logo { font-family: 'Dancing Script', cursive; font-size: 1.9rem; color: var(--gold); display: block; margin-bottom: 0.8rem; cursor: pointer; border: none; background: none; }
+    .footer-col p { font-size: 0.85rem; line-height: 1.85; color: rgba(253,248,244,0.45); }
+    .footer-col h5 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul li a, .footer-col ul li button { font-size: 0.85rem; color: rgba(253,248,244,0.45); text-decoration: none; transition: color 0.2s, transform 0.2s; background: none; border: none; cursor: pointer; font-family: 'Nunito', sans-serif; padding: 0; }
+    .footer-col ul li a:hover, .footer-col ul li button:hover { color: var(--gold-light); transform: translateX(4px); }
+    .footer-bottom { border-top: 1px solid rgba(253,248,244,0.08); padding-top: 1.8rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { font-size: 0.75rem; color: rgba(253,248,244,0.28); }
+    .footer-heart { color: var(--gold); }
+
+    /* CTA BAND */
+    .cta-band { background: var(--gold); padding: 4rem 5rem; text-align: center; position: relative; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 60% 40%, rgba(255,255,255,0.1), transparent 60%); }
+
+    /* TOAST */
+    .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--text-dark); color: var(--white); padding: 1rem 1.5rem; font-size: 0.85rem; font-weight: 600; border-radius: 6px; transform: translateY(100px); opacity: 0; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), opacity 0.4s; z-index: 9000; max-width: 300px; }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .sitenav-tabs button { font-size: 0.72rem; padding: 0.6rem 0.3rem; }
+      #page-home .hero { grid-template-columns: 1fr 1fr; }
+      .hero-right { display: flex !important; }
+      .about-grid, .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; padding: 3.5rem 1.8rem; }
+      section, .section { padding: 3.5rem 1.8rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      footer { padding: 2.5rem 1.8rem 1.5rem; }
+      .frow { grid-template-columns: 1fr; }
+      .photo-grid.grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .photo-item.featured { grid-column: span 1; grid-row: span 1; }
+      .cta-band { padding: 3rem 1.8rem; }
+    }
+    @media (max-width: 600px) {
+      #page-home .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none !important; }
+      .hero-left { padding: 3rem 1.5rem 2rem; }
+      .sitenav-top { padding: 0.75rem 1rem; }
+      section, .section { padding: 3rem 1.2rem; }
+      .about-grid { padding: 3rem 1.2rem; }
+      .hamburger { display: flex !important; }
+
+      /* Mobile dropdown menu */
+      .sitenav-tabs {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        flex-direction: column !important;
+        background: #fff !important;
+        box-shadow: 0 10px 32px rgba(44,24,16,0.14) !important;
+        border-top: 2px solid var(--gold-light) !important;
+        opacity: 0 !important;
+        max-height: none !important;
+        transform: translateY(-10px) !important;
+        pointer-events: none !important;
+        z-index: 200 !important;
+        transition: opacity 0.3s ease, transform 0.3s ease !important;
+        overflow: visible !important;
+      }
+      .sitenav-tabs.mob-open {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+      }
+      .sitenav-tabs button {
+        flex: none !important;
+        text-align: left !important;
+        padding: 1rem 1.5rem !important;
+        border-bottom: 1px solid rgba(232,196,188,0.3) !important;
+        border-left: 3px solid transparent !important;
+        font-size: 0.95rem !important;
+        opacity: 0;
+        transform: translateX(-16px);
+        transition: opacity 0.3s ease, transform 0.3s ease, color 0.2s, background 0.2s, border-color 0.2s !important;
+      }
+      .sitenav-tabs.mob-open button { opacity: 1 !important; transform: translateX(0) !important; }
+      .sitenav-tabs.mob-open button:nth-child(1) { transition-delay: 0.05s !important; }
+      .sitenav-tabs.mob-open button:nth-child(2) { transition-delay: 0.1s !important; }
+      .sitenav-tabs.mob-open button:nth-child(3) { transition-delay: 0.15s !important; }
+      .sitenav-tabs.mob-open button:nth-child(4) { transition-delay: 0.2s !important; }
+      .sitenav-tabs.mob-open button:nth-child(5) { transition-delay: 0.25s !important; }
+      .sitenav-tabs.mob-open button.active,
+      .sitenav-tabs.mob-open button:hover { border-left-color: var(--gold) !important; background: rgba(247,233,208,0.3) !important; }
+    }
+
+    /* Hamburger button — hidden on desktop */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px 6px;
+      margin-left: 0.5rem;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-dark);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <div class="lightbox-ph" id="lbEmoji">💄</div>
+    <div class="lightbox-info">
+      <h3 id="lbTitle">Look Title</h3>
+      <p id="lbDesc">Description of the look.</p>
+    </div>
+    <button class="lightbox-close" onclick="document.getElementById('lightbox').classList.remove('open')">✕</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="sitenav" id="sitenav">
+  <div class="sitenav-top">
+    <button class="sitenav-logo" onclick="showPage('home',null)" style="display:flex;align-items:center;gap:0.5rem;"><img src="/logo-original.png" alt="The Glam by Ankita" style="width:40px;height:40px;border-radius:50%;object-fit:cover;">The Glam by Ankita</button>
+    <div style="display:flex;align-items:center;gap:0.5rem;">
+      <button class="sitenav-book mag-btn" onclick="showPage('contact',null)">✨ Book Now</button>
+      <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="sitenav-tabs" id="sitenav-tabs">
+    <button class="active" onclick="showPage('home',this);closeMobileNav()">Home</button>
+    <button onclick="showPage('about',this);closeMobileNav()">About</button>
+    <button onclick="showPage('services',this);closeMobileNav()">Services</button>
+    <button onclick="showPage('gallery',this);closeMobileNav()">Gallery</button>
+    <button onclick="showPage('contact',this);closeMobileNav()">Contact</button>
+  </div>
+</div>
+
+<!-- HOME PAGE -->
+<div class="page active" id="page-home">
+  <section style="padding:0;" class="hero">
+    <div class="hero-left">
+      <div class="hero-pill" data-anim="up" style="margin-top:1.5rem;"><span class="dot"></span> Melbourne Makeup Artist</div>
+      <h1 class="hero-h1" data-anim="up" data-delay="100">Beauty That<br><em>Tells Your</em><br>Story</h1>
+      <p class="hero-p" data-anim="up" data-delay="300">Professional makeup artistry tailored to you — from soft everyday glam to full bridal transformations.</p>
+      <div class="hero-btns" data-anim="up" data-delay="400">
+        <button class="btn-primary mag-btn" onclick="showPage('contact',null)">Book Appointment</button>
+        <button class="btn-secondary" onclick="showPage('gallery',null)">View Portfolio</button>
+      </div>
+      <div class="hero-stats" data-anim="up" data-delay="500">
+        <div><div class="hero-stat-num">7</div><div class="hero-stat-lbl">Services</div></div>
+        <div class="hero-stat-div"></div>
+        <div><div class="hero-stat-num">MEL</div><div class="hero-stat-lbl">Based</div></div>
+        <div class="hero-stat-div"></div>
+        <div>
+          <div class="hero-stat-num" style="font-size:1.6rem;letter-spacing:1px;color:var(--gold);">★★★★★</div>
+          <div class="hero-stat-lbl">5-Star Reviews</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right" id="heroRight" style="background:var(--blush-light);display:flex;align-items:center;justify-content:center;">
+      <div class="hero-photo-wrap" data-anim="scale">
+        <img src="/logo-original.png" alt="The Glam by Ankita" style="width:100%;display:block;border-radius:50%;">
+      </div>
+      <div class="hero-gold-bar"></div>
+    </div>
+  </section>
+
+  <div class="marquee-bar" aria-hidden="true">
+    <div class="marquee-inner">
+      <span>Bridal Glam</span><span class="sep">✦</span>
+      <span>Soft & Full Glam</span><span class="sep">✦</span>
+      <span>Party Makeup</span><span class="sep">✦</span>
+      <span>Editorial</span><span class="sep">✦</span>
+      <span>Festival Looks</span><span class="sep">✦</span>
+      <span>Content Creation</span><span class="sep">✦</span>
+      <span>Bridal Glam</span><span class="sep">✦</span>
+      <span>Soft & Full Glam</span><span class="sep">✦</span>
+      <span>Party Makeup</span><span class="sep">✦</span>
+      <span>Editorial</span><span class="sep">✦</span>
+      <span>Festival Looks</span><span class="sep">✦</span>
+      <span>Content Creation</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <div class="section" style="background:var(--cream);">
+    <div style="text-align:center;max-width:600px;margin:0 auto 3rem;">
+      <p class="eyebrow" data-anim="up">Why Choose Ankita</p>
+      <h2 class="section-h2" data-anim="up" data-delay="100">The <em class="draw-underline">Glam</em> Difference</h2>
+      <div class="divider" style="margin:0 auto 1.5rem;" data-anim="scale"></div>
+      <p class="body-text" data-anim="up" data-delay="200">Every client deserves to feel radiant. Here's what sets The Glam by Ankita apart.</p>
+    </div>
+    <div class="why-grid" data-stagger>
+      <div class="why-card hover-lift"><div class="why-card-icon">🎨</div><h4>Tailored to You</h4><p>Every look is customised to your features, skin tone, and personal style vision.</p></div>
+      <div class="why-card hover-lift"><div class="why-card-icon">✨</div><h4>Premium Products</h4><p>Only high-quality, long-wearing makeup products used in every application.</p></div>
+      <div class="why-card hover-lift"><div class="why-card-icon">📸</div><h4>Camera Ready</h4><p>Looks designed to photograph beautifully in every light — natural or studio.</p></div>
+      <div class="why-card hover-lift"><div class="why-card-icon">🌸</div><h4>Inclusive Beauty</h4><p>Experienced with all skin tones and textures — everyone deserves to feel beautiful.</p></div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS SECTION -->
+  <div class="section" style="background:var(--blush-light);">
+    <div style="text-align:center;max-width:600px;margin:0 auto 3rem;">
+      <p class="eyebrow" data-anim="up">Client Experiences</p>
+      <h2 class="section-h2" data-anim="up" data-delay="100">What They're <em class="draw-underline">Saying</em></h2>
+      <div class="divider" style="margin:0 auto 1.5rem;" data-anim="scale"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:900px;margin:0 auto;" data-stagger>
+      <div class="why-card hover-lift" style="padding:2.2rem;">
+        <div style="font-size:1.2rem;color:var(--gold);margin-bottom:1rem;letter-spacing:2px;">★★★★★</div>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:var(--text-mid);line-height:1.85;margin-bottom:1.5rem;">"Ankita did my makeup for a special runway show. She is fantastic!"</p>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:0.9rem;flex-shrink:0;">T</div>
+          <div>
+            <span style="font-weight:700;font-size:0.92rem;color:var(--text-dark);">Tracy Davis</span>
+            <div style="font-size:0.75rem;color:var(--text-light);margin-top:2px;">@powetracy &middot; Model</div>
+          </div>
+        </div>
+      </div>
+      <div class="why-card hover-lift" style="padding:2.2rem;">
+        <div style="font-size:1.2rem;color:var(--gold);margin-bottom:1rem;letter-spacing:2px;">★★★★★</div>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:var(--text-mid);line-height:1.85;margin-bottom:1.5rem;">"I enjoyed my experience, Ankita listens to what you like then will give her professional opinion, so great balance so you get the perfect look. Loved my experience with Ankita — great to express and be heard also with a professional input. I would recommend your service."</p>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:0.9rem;flex-shrink:0;">J</div>
+          <div>
+            <span style="font-weight:700;font-size:0.92rem;color:var(--text-dark);">Julie Jones</span>
+            <div style="font-size:0.75rem;color:var(--text-light);margin-top:2px;">@julie.jones1111 &middot; Model</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-band" data-anim="up">
+    <p style="font-size:1rem;color:rgba(255,255,255,0.85);margin-bottom:1.5rem;font-weight:400;" data-anim="up">Ready to look and feel your absolute best?</p>
+    <button class="mag-btn" style="background:var(--white);color:var(--gold-dark);border:none;font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;padding:0.9rem 2.5rem;border-radius:4px;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;" onclick="showPage('contact',null)" data-anim="up" data-delay="100" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">Book your session ✦</button>
+  </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div class="page" id="page-about">
+  <div class="about-grid">
+    <div class="about-photo-col" data-anim="left">
+      <div style="position:relative;display:inline-block;">
+        <div class="about-photo-frame">
+          <img src="/ankita-photo.jpeg" alt="Ankita Awasthi" style="width:100%;height:100%;object-fit:cover;border-radius:50%;object-position:center 22%;">
+        </div>
+        <div class="about-badge">
+          <div class="about-badge-num">5</div>
+          <div class="about-badge-lbl">Stars</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem;width:100%;max-width:280px;">
+        <div style="background:var(--white);border:1px solid var(--blush-deep);border-radius:8px;padding:1.2rem 1.4rem;border-left:3px solid var(--gold);">
+          <div style="font-size:0.95rem;color:var(--gold);letter-spacing:2px;margin-bottom:0.5rem;">★★★★★</div>
+          <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:0.85rem;color:var(--text-mid);line-height:1.7;margin-bottom:0.8rem;">"She is fantastic!"</p>
+          <span style="font-size:0.78rem;font-weight:700;color:var(--text-dark);">Tracy Davis</span>
+          <span style="font-size:0.72rem;color:var(--text-light);"> &middot; @powetracy</span>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--blush-deep);border-radius:8px;padding:1.2rem 1.4rem;border-left:3px solid var(--gold);">
+          <div style="font-size:0.95rem;color:var(--gold);letter-spacing:2px;margin-bottom:0.5rem;">★★★★★</div>
+          <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:0.85rem;color:var(--text-mid);line-height:1.7;margin-bottom:0.8rem;">"Perfect look — loved my experience!"</p>
+          <span style="font-size:0.78rem;font-weight:700;color:var(--text-dark);">Julie Jones</span>
+          <span style="font-size:0.72rem;color:var(--text-light);"> &middot; @julie.jones1111</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-content" data-anim="right">
+      <p class="eyebrow">About Me</p>
+      <h2 class="section-h2">Hi, I'm <em class="draw-underline">Ankita</em></h2>
+      <div class="divider"></div>
+      <p class="body-text">I'm a Melbourne-based makeup artist and beauty creator with a deep passion for making every person I work with feel confident and beautiful in their own skin.</p>
+      <p class="body-text">From soft, dewy bridal looks to bold editorial statements, I tailor every application to your unique features, skin type, and vision. Every face is a canvas.</p>
+      <p class="body-text">I'm also a beauty content creator, collaborating with brands and photographers on UGC, TFP, and editorial projects.</p>
+      <div class="expertise-pills" data-stagger>
+        <span>Bridal & Occasion Glam</span>
+        <span>Soft & Natural Looks</span>
+        <span>Editorial & Creative</span>
+        <span>Cultural & Festival</span>
+        <span>Content & UGC</span>
+      </div>
+      <div class="about-values" data-stagger>
+        <div class="value-card hover-lift"><div class="value-card-icon">🤝</div><h4>Open to Collabs</h4><p>UGC, TFP, PR gifting and brand partnerships welcome.</p></div>
+        <div class="value-card hover-lift"><div class="value-card-icon">🎨</div><h4>Creative Vision</h4><p>Every look is a work of art, unique to you.</p></div>
+        <div class="value-card hover-lift"><div class="value-card-icon">🌏</div><h4>Cultural Expertise</h4><p>Deep appreciation of South Asian and multicultural beauty traditions.</p></div>
+        <div class="value-card hover-lift"><div class="value-card-icon">⚡</div><h4>Quick Response</h4><p>All enquiries answered within 24 hours.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES PAGE -->
+<div class="page" id="page-services">
+  <div class="section">
+    <div data-anim="up">
+      <p class="eyebrow">What I Offer</p>
+      <h2 class="section-h2">Services &amp; <em class="draw-underline">Specialties</em></h2>
+      <div class="divider"></div>
+      <p class="body-text" style="max-width:600px;margin-bottom:2.5rem;">Whether you're getting married, attending a festival, shooting content or just want to feel your best — I've got a service for you.</p>
+    </div>
+    <div class="service-tabs" data-stagger>
+      <button class="stab active" onclick="showServiceTab('all',this)">All Services</button>
+      <button class="stab" onclick="showServiceTab('glam',this)">Glam</button>
+      <button class="stab" onclick="showServiceTab('bridal',this)">Bridal</button>
+      <button class="stab" onclick="showServiceTab('creative',this)">Creative</button>
+      <button class="stab" onclick="showServiceTab('collab',this)">Collabs</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:2px;background:var(--blush-deep);" data-stagger id="servicesGrid">
+      <div class="svc-card hover-lift" data-cat="glam"><div class="svc-num">01</div><div class="svc-emoji">💄</div><h3 class="svc-name">Soft & Everyday Glam</h3><p class="svc-desc">Natural, glowing looks perfect for daily wear, work, or casual events. Clean skin, defined features.</p><span class="svc-tag">Glam</span></div>
+      <div class="svc-card hover-lift" data-cat="glam"><div class="svc-num">02</div><div class="svc-emoji">🎉</div><h3 class="svc-name">Party Makeup</h3><p class="svc-desc">Full glam for celebrations, nights out, or any occasion where you want to shine.</p><span class="svc-tag">Glam</span></div>
+      <div class="svc-card hover-lift" data-cat="bridal"><div class="svc-num">03</div><div class="svc-emoji">👰</div><h3 class="svc-name">Bridal Makeup</h3><p class="svc-desc">Long-wear, flawless bridal looks designed to last all day and photograph beautifully. Trial included.</p><span class="svc-tag">Bridal</span></div>
+      <div class="svc-card hover-lift" data-cat="bridal"><div class="svc-num">04</div><div class="svc-emoji">🌸</div><h3 class="svc-name">Bridal Party</h3><p class="svc-desc">Coordinated looks for the entire bridal party — bridesmaids, mother of the bride, and more.</p><span class="svc-tag">Bridal</span></div>
+      <div class="svc-card hover-lift" data-cat="creative"><div class="svc-num">05</div><div class="svc-emoji">🎨</div><h3 class="svc-name">Editorial & Creative</h3><p class="svc-desc">Avant-garde and artistic makeup for shoots, fashion, and creative projects.</p><span class="svc-tag">Creative</span></div>
+      <div class="svc-card hover-lift" data-cat="collab"><div class="svc-num">06</div><div class="svc-emoji">💛</div><h3 class="svc-name">Brand Collabs</h3><p class="svc-desc">UGC, PR gifting, and brand collaboration content creation. Let's create together.</p><span class="svc-tag">Collab</span></div>
+      <div class="svc-card hover-lift" data-cat="collab"><div class="svc-num">07</div><div class="svc-emoji">📸</div><h3 class="svc-name">TFP / Portfolio</h3><p class="svc-desc">Trade-for-print collaborations with photographers and models for portfolio building.</p><span class="svc-tag">Collab</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- GALLERY PAGE -->
+<div class="page" id="page-gallery">
+  <div class="section">
+    <div class="gallery-controls" data-anim="up">
+      <div>
+        <p class="eyebrow">Portfolio</p>
+        <h2 class="section-h2">Previous <em class="draw-underline">Work</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.8rem;align-items:flex-end;">
+        <div class="gallery-filters">
+          <button class="gfbtn active" onclick="filterPhotos(this,'all')">All</button>
+          <button class="gfbtn" onclick="filterPhotos(this,'bridal')">Bridal</button>
+          <button class="gfbtn" onclick="filterPhotos(this,'glam')">Glam</button>
+          <button class="gfbtn" onclick="filterPhotos(this,'editorial')">Editorial</button>
+          <button class="gfbtn" onclick="filterPhotos(this,'festival')">Festival</button>
+        </div>
+        <div class="gallery-view-toggle">
+          <button class="view-btn active" onclick="setView(this,'grid-3')">⊞ 3</button>
+          <button class="view-btn" onclick="setView(this,'grid-2')">⊟ 2</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="photo-grid grid-3" id="photoGrid" data-stagger>
+      <div class="photo-item featured" data-cat="bridal" data-title="Bridal Glam" data-desc="Soft, long-wear bridal look" onclick="openLightbox(this)">
+        <div class="photo-ph">👰<div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);margin-top:0.5rem;">Coming Soon</div></div>
+        <div class="photo-overlay"><div class="photo-overlay-txt">Bridal Glam<br><small>Soft & Romantic</small></div></div>
+        <button class="photo-heart">♡</button>
+      </div>
+      <div class="photo-item" data-cat="glam" data-title="Full Glam" data-desc="Party-ready full glam" onclick="openLightbox(this)">
+        <div class="photo-ph">💄<div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);margin-top:0.5rem;">Coming Soon</div></div>
+        <div class="photo-overlay"><div class="photo-overlay-txt">Full Glam</div></div>
+        <button class="photo-heart">♡</button>
+      </div>
+      <div class="photo-item" data-cat="editorial" data-title="Editorial Look" data-desc="Creative editorial makeup" onclick="openLightbox(this)">
+        <div class="photo-ph">🎨<div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);margin-top:0.5rem;">Coming Soon</div></div>
+        <div class="photo-overlay"><div class="photo-overlay-txt">Editorial</div></div>
+        <button class="photo-heart">♡</button>
+      </div>
+      <div class="photo-item" data-cat="festival" data-title="Festival Vibes" data-desc="Festival glitter and glow" onclick="openLightbox(this)">
+        <div class="photo-ph">✨<div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);margin-top:0.5rem;">Coming Soon</div></div>
+        <div class="photo-overlay"><div class="photo-overlay-txt">Festival Vibes</div></div>
+        <button class="photo-heart">♡</button>
+      </div>
+      <div class="photo-item" data-cat="glam" data-title="Soft Glam" data-desc="Everyday soft glam look" onclick="openLightbox(this)">
+        <img src="/soft-glam-1.jpeg" alt="Soft Glam" style="width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1);">
+        <div class="photo-overlay"><div class="photo-overlay-txt">Soft Glam</div></div>
+        <button class="photo-heart">♡</button>
+      </div>
+      <div class="photo-item" data-cat="bridal" data-title="Bridal Party" data-desc="Coordinated bridal party looks" onclick="openLightbox(this)">
+        <div class="photo-ph">💐<div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);margin-top:0.5rem;">Coming Soon</div></div>
+        <div class="photo-overlay"><div class="photo-overlay-txt">Bridal Party</div></div>
+        <button class="photo-heart">♡</button>
+      </div>
+      <div class="photo-item" data-cat="editorial" data-title="Bold Editorial" data-desc="Avant-garde creative look" onclick="openLightbox(this)">
+        <div class="photo-ph">🎭<div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);margin-top:0.5rem;">Coming Soon</div></div>
+        <div class="photo-overlay"><div class="photo-overlay-txt">Bold Editorial</div></div>
+        <button class="photo-heart">♡</button>
+      </div>
+    </div>
+
+    <!-- REELS -->
+    <div class="reels-section" data-anim="up">
+      <div class="reels-section-title">
+        Featured Reels <span>✦ From Instagram</span>
+      </div>
+      <p style="font-size:0.88rem;color:var(--text-mid);margin-bottom:0.3rem;">Behind-the-scenes and finished looks straight from Instagram.</p>
+      <div class="reels-grid" id="reelsGrid">
+        <div class="reel-item">
+          <div class="reel-embed">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYpbXqRTkGn/" data-instgrm-version="14" style="background:#FFF;border:0;margin:0;max-width:100%;min-width:220px;padding:0;width:100%;"></blockquote>
+          </div>
+          <div class="reel-label">📸 <a href="https://www.instagram.com/p/DYpbXqRTkGn/" target="_blank" rel="noopener">View on Instagram</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ig-panel" data-anim="up" style="margin-top:2rem;">
+      <div class="ig-panel-top">
+        <div class="ig-panel-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+        </div>
+        <h3>See More on Instagram</h3>
+      </div>
+      <p style="font-size:0.88rem;color:var(--text-mid);margin-bottom:1rem;">Follow along for the latest looks, behind-the-scenes, and beauty tips.</p>
+      <div class="ig-steps">
+        <div class="ig-step"><div class="ig-step-n">1</div><span>Open Instagram and search <code>@theglambyankita</code></span></div>
+        <div class="ig-step"><div class="ig-step-n">2</div><span>Hit Follow to stay updated with new work</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div class="page" id="page-contact">
+  <div class="section">
+    <div data-anim="up" style="margin-bottom:3rem;">
+      <p class="eyebrow">Get In Touch</p>
+      <h2 class="section-h2">Book Your <em class="draw-underline">Session</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-layout">
+      <div class="contact-sidebar" data-anim="left">
+        <h3>Let's Create Something Beautiful</h3>
+        <p>Ready to look and feel your absolute best? Fill in the form and I'll get back to you within 24 hours to discuss your vision and confirm availability.</p>
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <a href="mailto:theglambyankita@gmail.com" style="color:var(--text-mid);text-decoration:none;font-size:0.88rem;font-weight:500;" onmouseover="this.style.color='var(--gold-dark)'" onmouseout="this.style.color='var(--text-mid)'">theglambyankita@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
+          <a href="https://www.instagram.com/theglambyankita" target="_blank" rel="noopener" style="color:var(--text-mid);text-decoration:none;font-size:0.88rem;font-weight:500;" onmouseover="this.style.color='var(--gold-dark)'" onmouseout="this.style.color='var(--text-mid)'">@theglambyankita</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 0"/><path d="M16.5 9.5c-.5-1.5-2-2.5-4.5-2.5-3 0-5 2-5 5s2 5 5 5c2 0 3.5-.8 4.5-2.5"/><path d="M16.5 9.5V12h-2"/></svg></div>
+          <a href="https://www.threads.net/@theglambyankita" target="_blank" rel="noopener" style="color:var(--text-mid);text-decoration:none;font-size:0.88rem;font-weight:500;" onmouseover="this.style.color='var(--gold-dark)'" onmouseout="this.style.color='var(--text-mid)'">Threads: @theglambyankita</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <span>Melbourne, Victoria, Australia</span>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScf2z_0zt-d6lOl0jYAY8WQjZZSi--IAGgHJoUCNB8DHx_zoQ/viewform?usp=publish-editor" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--champagne);color:var(--gold-dark);border:1.5px solid var(--gold-light);border-radius:4px;padding:0.65rem 1.4rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;transition:background 0.2s,transform 0.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='white';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--champagne)';this.style.color='var(--gold-dark)';this.style.transform=''">⭐ Leave a Review</a>
+        </div>
+        <div class="quote-box">
+          <p>"Every face tells a story — I'm here to help yours shine."</p>
+        </div>
+
+        <div style="margin-top:2.5rem;">
+          <p class="eyebrow" style="margin-bottom:1rem;">Open to Collabs</p>
+          <div class="collab-grid" style="grid-template-columns:1fr 1fr;margin-top:0;">
+            <div class="collab-card hover-lift"><div class="cc-ico">📸</div><h4>TFP</h4><p>Trade-for-print photography collabs.</p></div>
+            <div class="collab-card hover-lift"><div class="cc-ico">🎁</div><h4>PR Gifting</h4><p>Product reviews and UGC content.</p></div>
+            <div class="collab-card hover-lift"><div class="cc-ico">🤝</div><h4>Brand Deals</h4><p>Paid partnerships with beauty brands.</p></div>
+            <div class="collab-card hover-lift"><div class="cc-ico">🎬</div><h4>Editorial</h4><p>Magazine and creative shoot work.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-anim="right">
+        <div id="form-container">
+        <div class="form-tabs">
+          <button class="ftab active" onclick="switchTab(this,'tab-book')">💄 Book Makeup Appointment</button>
+          <button class="ftab" onclick="switchTab(this,'tab-collab')">🤝 Work With Me</button>
+        </div>
+        <div class="form-panel">
+          <div id="tab-book" class="active">
+            <div class="frow">
+              <div class="fgroup"><label>First Name *</label><input id="book-first" type="text" placeholder="Your first name"></div>
+              <div class="fgroup"><label>Last Name *</label><input id="book-last" type="text" placeholder="Your last name"></div>
+            </div>
+            <div class="fgroup"><label>Email *</label><input id="book-email" type="email" placeholder="your@email.com" oninput="clearEmailError('book-email-error')"><span class="field-error" id="book-email-error"></span></div>
+            <div class="fgroup"><label>Phone *</label><input id="book-phone" type="tel" placeholder="0400 000 000"></div>
+            <div class="fgroup"><label>Preferred Date *</label>
+              <input id="book-date" type="date">
+            </div>
+            <div class="fgroup"><label>Number of People</label>
+              <select id="book-people">
+                <option>Just me</option>
+                <option>2 people</option>
+                <option>3 people</option>
+                <option>4 people</option>
+                <option>5+ people</option>
+              </select>
+            </div>
+            <div class="fgroup"><label>Services Required *</label>
+              <div class="check-grid">
+                <label class="check-item"><input type="checkbox"><span>Soft &amp; Full Glam</span></label>
+                <label class="check-item"><input type="checkbox"><span>Party &amp; Occasion</span></label>
+                <label class="check-item"><input type="checkbox"><span>Bridal &amp; Guest</span></label>
+                <label class="check-item"><input type="checkbox"><span>Festival &amp; Cultural</span></label>
+                <label class="check-item"><input type="checkbox"><span>Other</span></label>
+              </div>
+            </div>
+            <div class="frow">
+              <div class="fgroup"><label>Suburb / Location</label><input id="book-location" type="text" placeholder="e.g. Southbank, CBD..."></div>
+              <div class="fgroup"><label>Postcode</label><input id="book-postcode" type="text" inputmode="numeric" maxlength="4" placeholder="3000"></div>
+            </div>
+            <div class="fgroup"><label>How Did You Find Me?</label>
+              <select id="book-referral">
+                <option value="">Select...</option>
+                <option>Instagram</option>
+                <option>Google</option>
+                <option>Word of mouth / Friend</option>
+                <option>Facebook</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="fgroup"><label>Tell Me About Your Vision</label><textarea id="book-vision" placeholder="Describe your look, event details, inspo, skin concerns..."></textarea></div>
+            <div class="fgroup">
+              <label>Inspiration Photos / References</label>
+              <div class="file-drop" onclick="document.getElementById('book-files').click()">
+                <input type="file" id="book-files" multiple accept=".jpg,.jpeg,.png,.pdf" style="display:none" onchange="updateFileLabel(this,'book-file-lbl')">
+                <div class="file-drop-icon">📎</div>
+                <p id="book-file-lbl"><strong>Click to upload inspo photos or references</strong></p>
+                <p class="file-drop-hint">JPG, PNG, PDF accepted · Max 5 files</p>
+              </div>
+            </div>
+            <div class="form-submit-row">
+              <button id="btn-book" onclick="submitForm('booking')">Send Booking Request</button>
+              <p class="form-note">Response within 24–48 hrs 🌸</p>
+            </div>
+          </div>
+
+          <div id="tab-collab">
+            <div class="fgroup"><label>Your Name *</label><input id="collab-name" type="text" placeholder="Your name"></div>
+            <div class="fgroup"><label>Brand / Company</label><input id="collab-brand" type="text" placeholder="Brand name (if applicable)"></div>
+            <div class="fgroup"><label>Email *</label><input id="collab-email" type="email" placeholder="your@email.com" oninput="clearEmailError('collab-email-error')"><span class="field-error" id="collab-email-error"></span></div>
+            <div class="fgroup"><label>Instagram Handle</label><input id="collab-ig" type="text" placeholder="@yourhandle"></div>
+            <div class="fgroup"><label>Collaboration Type *</label>
+              <select id="collab-type">
+                <option value="">Select...</option>
+                <option>UGC Creation</option>
+                <option>PR Gifting</option>
+                <option>TFP Shoot</option>
+                <option>Paid Partnership</option>
+                <option>Editorial / Magazine</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="fgroup"><label>Tell Me About The Collaboration</label><textarea id="collab-desc" placeholder="Timeline, deliverables, product details..."></textarea></div>
+            <div class="fgroup">
+              <label>Attach Files / Mood Board / Brief</label>
+              <div class="file-drop" onclick="document.getElementById('collab-files').click()">
+                <input type="file" id="collab-files" multiple accept=".jpg,.jpeg,.png,.pdf,.doc,.docx" style="display:none" onchange="updateFileLabel(this,'collab-file-lbl')">
+                <div class="file-drop-icon">📎</div>
+                <p id="collab-file-lbl"><strong>Click to upload mood board, brief or product images</strong></p>
+                <p class="file-drop-hint">JPG, PNG, PDF, DOC accepted · Max 5 files</p>
+              </div>
+            </div>
+            <div class="form-submit-row">
+              <button id="btn-collab" onclick="submitForm('collab')">Send Enquiry</button>
+              <p class="form-note">All collab enquiries reviewed within 48 hrs.</p>
+            </div>
+
+            <div style="margin-top:2.5rem;">
+              <p class="eyebrow" style="margin-bottom:1.2rem;">Collaboration Types</p>
+              <div style="display:flex;flex-direction:column;gap:1rem;">
+                <div class="collab-type-card"><div class="ctc-icon">📋</div><div><h4>UGC Creation</h4><p>High-quality authentic content for beauty &amp; lifestyle brands.</p></div></div>
+                <div class="collab-type-card"><div class="ctc-icon">🎁</div><div><h4>PR Gifting</h4><p>Send your product for an honest, beautifully photographed review.</p></div></div>
+                <div class="collab-type-card"><div class="ctc-icon">📸</div><div><h4>TFP Shoots</h4><p>Trade-for-portfolio with photographers &amp; models.</p></div></div>
+                <div class="collab-type-card"><div class="ctc-icon">✦</div><div><h4>Paid Partnerships</h4><p>Sponsored content across Instagram and Threads.</p></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div><!-- /form-container -->
+
+        <!-- SUCCESS SCREEN (shown after submit) -->
+        <div class="form-success-screen" id="form-success-screen">
+          <button class="fss-back" onclick="backToForm()">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            Back
+          </button>
+          <div class="fss-card">
+            <div class="fss-icon" id="fss-icon">💄</div>
+            <h3 id="fss-title">Request Sent!</h3>
+            <p id="fss-body">I've received your booking request and will be in touch within 24–48 hours. So excited to work with you!</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <button class="footer-logo" onclick="showPage('home',null)" style="display:flex;flex-direction:column;align-items:flex-start;gap:0.5rem;">The Glam by Ankita<img src="/logo-original.png" alt="The Glam by Ankita" style="width:120px;height:120px;border-radius:50%;object-fit:cover;"></button>
+      <p>Melbourne-based makeup artist specialising in bridal, glam, editorial, and creative beauty. Every look is a work of art.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navigate</h5>
+      <ul>
+        <li><button onclick="showPage('home',null)">Home</button></li>
+        <li><button onclick="showPage('about',null)">About</button></li>
+        <li><button onclick="showPage('services',null)">Services</button></li>
+        <li><button onclick="showPage('gallery',null)">Gallery</button></li>
+        <li><button onclick="showPage('contact',null)">Contact</button></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="https://www.instagram.com/theglambyankita" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.threads.net/@theglambyankita" target="_blank" rel="noopener">Threads</a></li>
+        <li><a href="https://linktr.ee/theglambyankita" target="_blank" rel="noopener">Linktree</a></li>
+        <li><a href="mailto:theglambyankita@gmail.com">Email Me</a></li>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScf2z_0zt-d6lOl0jYAY8WQjZZSi--IAGgHJoUCNB8DHx_zoQ/viewform?usp=publish-editor" target="_blank" rel="noopener">Leave a Review</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 The Glam by Ankita · Ankita Awasthi. All rights reserved.</p>
+    <p style="margin:0;">Made with <span class="footer-heart">♥</span> in Melbourne</p>
+  </div>
+</footer>
+
+<script>
+
+  // PAGE NAVIGATION
+  function showPage(pageId, btn) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + pageId).classList.add('active');
+    document.querySelectorAll('.sitenav-tabs button').forEach(b => b.classList.remove('active'));
+    if (btn) { btn.classList.add('active'); }
+    else {
+      const map = {home:0,about:1,services:2,gallery:3,contact:4};
+      const btns = document.querySelectorAll('.sitenav-tabs button');
+      if (btns[map[pageId]]) btns[map[pageId]].classList.add('active');
+    }
+    window.scrollTo({top:0, behavior:'smooth'});
+    setTimeout(() => triggerAnims(), 100);
+  }
+
+  // SCROLL PROGRESS BAR
+  window.addEventListener('scroll', () => {
+    const bar = document.getElementById('progress-bar');
+    const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    bar.style.width = scrolled + '%';
+    const nav = document.getElementById('sitenav');
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+    const tabs = document.getElementById('sitenav-tabs');
+    if (tabs && window.innerWidth > 600) tabs.classList.toggle('tabs-hidden', window.scrollY > 60);
+  });
+
+  // ANIMATION TRIGGER
+  function triggerAnims() {
+    const els = document.querySelectorAll('[data-anim], [data-stagger], .draw-underline');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('anim-in');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    els.forEach(el => obs.observe(el));
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(triggerAnims, 100);
+    // Set minimum date to today for the booking date picker
+    const dateInput = document.getElementById('book-date');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+    }
+    // Load Instagram embed script for reels
+    if (!document.getElementById('ig-embed-script')) {
+      const s = document.createElement('script');
+      s.id = 'ig-embed-script';
+      s.src = 'https://www.instagram.com/embed.js';
+      s.async = true;
+      document.body.appendChild(s);
+    }
+  });
+
+  // SERVICE TAB FILTER
+  function showServiceTab(cat, btn) {
+    document.querySelectorAll('.stab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.svc-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+    });
+  }
+
+  // GALLERY FILTER
+  function filterPhotos(btn, cat) {
+    document.querySelectorAll('.gfbtn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.photo-item').forEach(item => {
+      item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
+    });
+  }
+
+  // GALLERY VIEW
+  function setView(btn, cls) {
+    document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const grid = document.getElementById('photoGrid');
+    grid.classList.remove('grid-3','grid-2');
+    grid.classList.add(cls);
+  }
+
+  // LIGHTBOX
+  function openLightbox(el) {
+    const emojis = {'bridal':'👰','glam':'💄','editorial':'🎨','festival':'✨'};
+    const lbPh = document.getElementById('lbEmoji');
+    const imgEl = el.querySelector('img');
+    if (imgEl) {
+      lbPh.innerHTML = '';
+      lbPh.style.padding = '0';
+      const img = document.createElement('img');
+      img.src = imgEl.src;
+      img.alt = el.dataset.title || '';
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover;object-position:center top;display:block;';
+      lbPh.appendChild(img);
+    } else {
+      lbPh.innerHTML = '';
+      lbPh.style.padding = '';
+      lbPh.textContent = emojis[el.dataset.cat] || '💄';
+    }
+    document.getElementById('lbTitle').textContent = el.dataset.title || '';
+    document.getElementById('lbDesc').textContent = el.dataset.desc || '';
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox(e) {
+    if (e.target === document.getElementById('lightbox')) {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+  }
+
+  // FORM TABS
+  function switchTab(btn, tabId) {
+    document.querySelectorAll('.ftab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.form-panel > div').forEach(d => d.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+  }
+
+  // FILE LABEL UPDATER
+  function updateFileLabel(input, labelId) {
+    const lbl = document.getElementById(labelId);
+    if (input.files && input.files.length > 0) {
+      const names = [...input.files].slice(0, 5).map(f => f.name).join(', ');
+      lbl.innerHTML = '<strong>' + input.files.length + ' file(s) selected</strong>';
+    }
+  }
+
+  // COLLECT BOOKING FORM DATA
+  function getBookingData() {
+    const services = [...document.querySelectorAll('#tab-book input[type=checkbox]:checked')]
+      .map(c => c.closest('.check-item').querySelector('span').textContent).join(', ');
+    return {
+      first_name:    document.getElementById('book-first').value.trim(),
+      last_name:     document.getElementById('book-last').value.trim(),
+      client_email:  document.getElementById('book-email').value.trim(),
+      phone:         document.getElementById('book-phone').value.trim(),
+      preferred_date: document.getElementById('book-date').value,
+      num_people:    document.getElementById('book-people').value,
+      services:      services || 'Not specified',
+      location:      document.getElementById('book-location').value.trim(),
+      postcode:      document.getElementById('book-postcode').value.trim(),
+      referral:      document.getElementById('book-referral').value,
+      vision:        document.getElementById('book-vision').value.trim(),
+      owner_email:   'nishankn.ankita@gmail.com',
+      from_email:    'theglambyankita@gmail.com'
+    };
+  }
+
+  // COLLECT COLLAB FORM DATA
+  function getCollabData() {
+    return {
+      name:          document.getElementById('collab-name').value.trim(),
+      brand:         document.getElementById('collab-brand').value.trim(),
+      client_email:  document.getElementById('collab-email').value.trim(),
+      instagram:     document.getElementById('collab-ig').value.trim(),
+      collab_type:   document.getElementById('collab-type').value,
+      project_desc:  document.getElementById('collab-desc').value.trim(),
+      owner_email:   'nishankn.ankita@gmail.com',
+      from_email:    'theglambyankita@gmail.com'
+    };
+  }
+
+  // VALIDATE BASIC FIELDS
+  function validate(data, requiredKeys, emailErrorId) {
+    for (const key of requiredKeys) {
+      if (!data[key]) { showToast('⚠️ Please fill in all required fields.'); return false; }
+    }
+    if (data.client_email) {
+      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.client_email);
+      if (!valid) {
+        const el = document.getElementById(emailErrorId);
+        if (el) el.textContent = 'Invalid email address';
+        document.getElementById(emailErrorId.replace('-error', '')).focus();
+        return false;
+      }
+    }
+    if (data.phone) {
+      const digits = data.phone.replace(/\s/g, '');
+      if (!/^0[0-9]{9}$/.test(digits)) {
+        showToast('⚠️ Invalid phone number — please enter a valid Australian number (e.g. 0400 000 000).');
+        return false;
+      }
+    }
+    if (data.postcode && data.postcode.trim()) {
+      if (!/^[2-9][0-9]{3}$/.test(data.postcode.trim())) {
+        showToast('⚠️ Invalid postcode — please enter a valid 4-digit Australian postcode.');
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function clearEmailError(id) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = '';
+  }
+
+  // FORM SUBMIT — sends via API server
+  async function submitForm(type) {
+    const isBooking = type === 'booking';
+    const btnId     = isBooking ? 'btn-book' : 'btn-collab';
+    const successId = isBooking ? 'success-book' : 'success-collab';
+    const data      = isBooking ? getBookingData() : getCollabData();
+    const required  = isBooking
+      ? ['first_name', 'client_email', 'phone', 'preferred_date']
+      : ['name', 'client_email', 'collab_type'];
+
+    const emailErrorId = isBooking ? 'book-email-error' : 'collab-email-error';
+    if (!validate(data, required, emailErrorId)) return;
+
+    const btn = document.getElementById(btnId);
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const fd = new FormData();
+      fd.append('type', type);
+      Object.entries(data).forEach(([k, v]) => fd.append(k, v));
+      const fileInput = document.getElementById(isBooking ? 'book-files' : 'collab-files');
+      if (fileInput && fileInput.files) {
+        [...fileInput.files].slice(0, 5).forEach(f => fd.append('files', f));
+      }
+      const res = await fetch('/api/send-email', { method: 'POST', body: fd });
+      if (!res.ok) throw new Error('Server error');
+      // Populate and show success screen
+      const tab = isBooking ? 'tab-book' : 'tab-collab';
+      document.getElementById('fss-icon').textContent  = isBooking ? '💄' : '✨';
+      document.getElementById('fss-title').textContent = isBooking ? 'Booking Request Sent!' : 'Enquiry Sent!';
+      document.getElementById('fss-body').textContent  = isBooking
+        ? "I've received your booking request and will be in touch within 24–48 hours. So excited to work with you!"
+        : "Thank you for reaching out! I'll review your enquiry and get back to you within 48 hours.";
+      document.getElementById('form-container').style.display = 'none';
+      const successScreen = document.getElementById('form-success-screen');
+      successScreen.classList.add('show');
+      successScreen.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Reset form fields
+      document.querySelectorAll('#' + tab + ' input:not([type=file]):not([type=checkbox]), #' + tab + ' textarea, #' + tab + ' select').forEach(el => { el.value = ''; });
+      document.querySelectorAll('#' + tab + ' input[type=checkbox]').forEach(el => { el.checked = false; });
+    } catch (err) {
+      console.error('Email send error:', err);
+      showToast('❌ Something went wrong. Please DM on Instagram instead.');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = originalText;
+    }
+  }
+
+  // BACK TO FORM
+  function backToForm() {
+    document.getElementById('form-success-screen').classList.remove('show');
+    document.getElementById('form-container').style.display = '';
+  }
+
+  // TOAST
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3500);
+  }
+
+  // MOBILE NAV TOGGLE
+  function toggleMobileNav() {
+    const tabs = document.querySelector('.sitenav-tabs');
+    const btn  = document.getElementById('hamburger');
+    const isOpening = !tabs.classList.contains('mob-open');
+    if (isOpening) tabs.classList.remove('tabs-hidden');
+    tabs.classList.toggle('mob-open');
+    btn.classList.toggle('open');
+  }
+  function closeMobileNav() {
+    document.querySelector('.sitenav-tabs').classList.remove('mob-open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+
+  // HERO PARALLAX
+  const heroRight = document.getElementById('heroRight');
+  document.addEventListener('mousemove', (e) => {
+    if (!heroRight) return;
+    const x = (e.clientX / window.innerWidth - 0.5) * 10;
+    const y = (e.clientY / window.innerHeight - 0.5) * 10;
+    const wrap = heroRight.querySelector('.hero-photo-wrap');
+    if (wrap) wrap.style.transform = `translate(${x}px,${y}px)`;
+  });
+</script>
+</body>
+</html>
