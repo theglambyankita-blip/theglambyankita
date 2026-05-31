@@ -1,0 +1,51 @@
+The simultaneous combination of pnpm EAGAIN, shell freezes, and Git failure indicates that your Replit virtual machine (container) has run out of system resources, locked its file descriptors, or entered a corrupted state. When pnpm hits EAGAIN, it exhausts the shell's process limit, causing the console to freeze and stripping git of the resources it needs to execute commands. [1] 
+## 1. Force Reset the Replit Container
+When Replit's shell freezes entirely due to process locking, standard commands won't work. You need to force-restart the underlying virtual environment. [1, 2] 
+
+* Open a Shell tab (if it allows typing) and run the Replit container hard-reset command:
+
+kill 1
+
+* If the shell is completely frozen: Look at your browser URL, replace replit.com/... with ://replit.com, or click the Stop/Restart button at the top of the interface to force a fresh machine boot. [2] 
+* 
+
+## 2. Fix the pnpm EAGAIN & Shell Freeze
+Once your shell refreshes, prevent pnpm from immediately locking up your file system again by bypassing the default hardlink/symlink generation. [3] 
+
+* Create or open your project's .npmrc file and add this line to force a standard file copy:
+
+package-import-method=copy
+
+* Run a clean installation using offline fallback parameters to stop the container from timing out:
+
+rm -rf node_modules pnpm-lock.yaml && pnpm install --prefer-offline
+
+[3, 4, 5] 
+* 
+
+## 3. Repair the Broken Git State
+The Git failure is typically caused by Replit losing its OAuth link to GitHub or file descriptor blocks following the crash. [6] 
+
+* If it's a file lock issue: Clear any lingering Git lock files that are stopping commands from executing:
+
+rm -f .git/index.lock
+
+* If it's a connection issue: Replit frequently updates its GitHub integration paths. Go to your Replit Account Settings -> Connected Accounts / Integrations, disconnect GitHub completely, and then re-authenticate. [6] 
+* 
+
+------------------------------
+If the container continues to freeze or throw errors after trying these steps, tell me:
+
+* What specific error does Git output when you try to use it?
+* Do you have large dependencies (like puppeteer or heavy AI models) in your package.json?
+* Is this a standard workspace or a Replit Agent project? [7, 8] 
+
+
+[1] [https://www.reddit.com](https://www.reddit.com/r/replit/comments/1mb11ar/is_it_just_me_or_is_replit_becoming_unusable/)
+[2] [https://replit.discourse.group](https://replit.discourse.group/t/each-of-my-apps-is-crashing-30-seconds-after-opening/9504?page=2)
+[3] [https://answers.netlify.com](https://answers.netlify.com/t/installing-dependencies-fail-with-pnpm/105253)
+[4] [https://github.com](https://github.com/pnpm/pnpm/issues/4495)
+[5] [https://answers.netlify.com](https://answers.netlify.com/t/installing-dependencies-fail-with-pnpm/105253)
+[6] [https://replit.discourse.group](https://replit.discourse.group/t/git-issues-in-the-gitpane-in-replit/7659)
+[7] [https://github.com](https://github.com/pnpm/pnpm/issues/8370)
+[8] [https://www.youtube.com](https://www.youtube.com/watch?v=pVfQCbesbnM&vl=en&t=16)
