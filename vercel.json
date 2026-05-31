@@ -1,7 +1,10 @@
 {
-  "buildCommand": "cd artifacts/glam-by-ankita && BASE_PATH=/ pnpm run build",
-  "outputDirectory": "artifacts/glam-by-ankita/dist/public",
+  "buildCommand": "pnpm run build",
+  "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/:path*", "destination": "/api" }
+    {
+      "source": "/api/:path*",
+      "destination": "/api"
+    }
   ]
 }
