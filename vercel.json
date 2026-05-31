@@ -1,7 +1,6 @@
 {
-  "buildCommand": "pnpm --filter @workspace/glam-by-ankita run build",
+  "buildCommand": "cd artifacts/glam-by-ankita && BASE_PATH=/ pnpm run build",
   "outputDirectory": "artifacts/glam-by-ankita/dist/public",
-  "installCommand": "npx pnpm@10.11.1 install",
   "rewrites": [
     { "source": "/api/:path*", "destination": "/api" }
   ]
